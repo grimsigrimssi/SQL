@@ -1,6 +1,6 @@
 /*
 문제 1
-전체 직원의 다음 정보를 조회하세요. 정렬은 입사일(hire_date)의 오림차순(ASC)으로 가장 선임부터 출력이 되도록 하세요. 
+전체 직원의 다음 정보를 조회하세요. 정렬은 입사일(hire_date)의 오름차순(ASC)으로 가장 선임부터 출력이 되도록 하세요. 
 이름(first_name last_name),월급(salary), 전화번호(phone_number), 입사일(hire_date) 순서이고 "이름", "월급", "전화번호", "입사일"로
 컬럼이름을 대체해 보세요.
 */
@@ -10,7 +10,7 @@ select  first_name || ' ' || last_name as "이름",
         phone_number as "전화번호",
         hire_date as "입사일"
 from employees
-order by hire_date asc, salary desc;
+order by hire_date asc;
 
 
 /*
@@ -65,7 +65,7 @@ select  first_name as "이름",
         to_char(hire_date, 'YYYY-MM') as "입사일",
         department_id as "부서번호"
 from employees
-where department_id in ( 10, 90, 100);
+where department_id in (10, 90, 100);
 
 
 /*
@@ -75,7 +75,7 @@ where department_id in ( 10, 90, 100);
 select  first_name "이름",
         salary "월급"
 from employees
-where first_name like'%S%' 
+where first_name like '%S%' 
 or first_name like '%s%';
 
 
@@ -91,7 +91,7 @@ order by length(department_name) desc;
 문제 9
 정확하지 않지만, 지사가 있을 것으로 예상되눈 나라들을 나라이름을 대문자로 출력하고 올림차순(asc)으로 정렬해 보시오.
 */
-select initcap(country_name) as "country_name"
+select initcap(country_name) as country_name
 from countries
 order by country_name asc;
 
@@ -106,9 +106,6 @@ select  first_name,
 from employees
 where hire_date < '03/12/31'; 
 
-SELECT
-    *
-FROM employees
 
 
 
