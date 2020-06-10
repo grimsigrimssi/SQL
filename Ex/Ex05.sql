@@ -66,6 +66,18 @@ and e.employee_id = (select em.employee_id
 job_id가 'ST_MAN'인 직원의 급여보다 작은 직원의 사번, 이름, 급여를 급여의 내림차순으로 출력하세요. -ANY연산자 사용
 (74건)
 */
+select  employee_id,
+        first_name,
+        salary
+from    (select employee_id,
+                first_name,
+                salary
+        from employees
+        where salary < any  (select  salary
+                            from employees
+                            where job_id = 'ST_MAN')
+        order by salary desc
+        );                                
 
 
 
